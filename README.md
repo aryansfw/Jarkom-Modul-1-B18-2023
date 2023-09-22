@@ -54,6 +54,9 @@ Sequence Number (raw): 1044861039
 Acknowledgment number (raw): 258040696
 ```
 
+Jawaban:
+![ans 1](Gambar/1.3.jpg)
+
 ### Nomor 2
 
 #### Soal
@@ -67,6 +70,9 @@ Karena hanya diminta unuk mencari web server untuk portal praktikum Jaringan Kom
 ![Filtering jarkom](Gambar/2.1.png)
 
 ![Web server](Gambar/2.2.png)
+
+Jawaban:
+![ans 2](Gambar/2.3.jpg)
 
 ### Nomor 3
 
@@ -83,7 +89,7 @@ Dapin sedang belajar analisis jaringan. Bantulah Dapin untuk mengerjakan soal be
     </li>
 </ol>
 
-#### Pembahasn
+#### Pembahasan
 
 Kita akan melakukan filtering untuk menemukan paket yang tercapture dengan IP source maupun destination address adalah 239.255.255.250 dengan port 3702 dengan menggunakan `ip.addr == 239.255.255.250 and udp.port == 3702` maka akan muncul semua paket yang memenuhi persyaratan tersebut
 
@@ -94,6 +100,9 @@ Lalu untung berapa banyak paket kita bisa hitung manual atau bisa dengan cara me
 ![Statistics](Gambar/3.2.png)
 
 ![Jumlah Paket](Gambar/3.3.png)
+
+Jawaban:
+![ans 3](Gambar/3.4.jpg)
 
 ### Nomor 4
 
@@ -106,6 +115,9 @@ Berapa nilai checksum yang didapat dari header pada paket nomor 130?
 Agar mempermudah, lakukan filtering agar hanya terlihat paket No. 130 dengan menggunakan `frame.number==130` lalu lakukan drop down pada **User Datagram Protocol**. Maka akan terlihat nilai checksumnya yaitu `0x18e5`
 
 ![Paket 130](Gambar/4.1.png)
+
+Jawaban:
+![ans 4](Gambar/4.2.jpg)
 
 ### Nomor 5
 
@@ -191,6 +203,8 @@ Mkan terlihat source address pada paket No. 7812 adalah **104.18.14.101**. Kita 
     1   →   A
 Maka jika diurutkan akan mendapatkan ```JDRNJA```
 
+Jawaban:
+![ans 6](Gambar/6.3.jpg)
 
 ### Nomor 7
 
