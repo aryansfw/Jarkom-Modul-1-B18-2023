@@ -124,3 +124,12 @@ Berikan kueri filter sehingga wireshark hanya mengambil paket yang berasal dari 
 Sebutkan kredensial yang benar ketika user mencoba login menggunakan Telnet
 
 #### Pembahasan
+
+Dengan menggunakan aplikasi Wireshark, kita bisa menampilkan semua paket yang menggunakan protokol dengan memasukkan `telnet` pada display filter.
+![telnet display filter](images/no-10/1.png)
+
+Kemudian, ketika menelusuri paket satu per satu, ditemukan pada paket nomor 236 terdapat data `Login: `. Dengan melakukan follow TCP Stream seperti gambar di bawah ini, kita bisa melihat data yang terkirim antara IP 172.16.0.4 (ter-highlight biru) dan IP 172.16.0.254 (ter-highlight merah).
+![follow tcp stream](images/no-10/2.png)
+![tcp stream data](images/no-10/3.png)
+
+Dari data tersebut kita bisa mengetahui bahwa kredensial yang benar adalah `dhafin:kesayangannyak0k0`
