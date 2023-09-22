@@ -34,7 +34,7 @@ User melakukan berbagai aktivitas dengan menggunakan protokol FTP. Salah satunya
 
 Soal No. 1 hanya difokuskan pada **aktivitas mengunggah file**, jadi akan dicari paket yang melakukan perintah **STOR** dengan filtering menggunakan `ftp.request.command == "STOR"`
 
-![Paket STOR](gambar/1.1.png)
+![Paket STOR](Gambar/1.1.png)
 
 Akan muncul paket No.147 melakukan **Request** dengan perintah **STOR**. Lalu click paket tersebut dan lakukan drop down pada **Transmission Control Protocol** maka akan terlihat Sequence number (raw) dan Acknowledgement number (raw) untuk aktivitas pengunggahan file.
 
@@ -45,7 +45,7 @@ Acknowledgment number (raw): 1044861039
 
 Aktivitas pengunggahan file tersebut dalam bentuk file .zip. Maka kita akan mencari paket response yang berbentuk file .zip dan file tersebut adalah paket No. 149.
 
-![Paket Response](gambar/1.2.png)
+![Paket Response](Gambar/1.2.png)
 
 Lakukan hal yang sama seperti paket No. 147, drop down pada **Transmission Control Protocol** maka akan terlihat Sequence number (raw) dan Acknowledgement number (raw) untuk response dari aktivitas pengunggahan file tersebut.
 
@@ -64,9 +64,9 @@ Sebutkan web server yang digunakan pada portal praktikum Jaringan Komputer!
 
 Karena hanya diminta unuk mencari web server untuk portal praktikum Jaringan Komputer maka kita akan melakukan filtering khusus mencari file yang terdapat **Jaringan Komputer** di paketnya dengan `frame contains "Jaringan Komputer"`. Lalu lakukan follow TCP Stream dan setelah itu kita dapat melihat server yang digunakan yaitu `gunicorn`.
 
-![Filtering jarkom](gambar/2.1.png)
+![Filtering jarkom](Gambar/2.1.png)
 
-![Web server](gambar/2.2.png)
+![Web server](Gambar/2.2.png)
 
 ### Nomor 3
 
@@ -87,13 +87,13 @@ Dapin sedang belajar analisis jaringan. Bantulah Dapin untuk mengerjakan soal be
 
 Kita akan melakukan filtering untuk menemukan paket yang tercapture dengan IP source maupun destination address adalah 239.255.255.250 dengan port 3702 dengan menggunakan `ip.addr == 239.255.255.250 and udp.port == 3702` maka akan muncul semua paket yang memenuhi persyaratan tersebut
 
-![Paket 239.255.255.250 3702](gambar/3.1.png)
+![Paket 239.255.255.250 3702](Gambar/3.1.png)
 
 Lalu untung berapa banyak paket kita bisa hitung manual atau bisa dengan cara membuka **Statistics** dan memilih **Capture File Properties** atau bisa juga dengan shortcut ` Ctrl + Alt + Shift + C` dan kita akan mendapatkan jumlah banyak paket yang sedang terlihat yaitu `21` dan seperti yang bisa dilihat protokol yang digunakan adalah `UDP`
 
-![Statistics](gambar/3.2.png)
+![Statistics](Gambar/3.2.png)
 
-![Jumlah Paket](gambar/3.3.png)
+![Jumlah Paket](Gambar/3.3.png)
 
 ### Nomor 4
 
@@ -105,7 +105,7 @@ Berapa nilai checksum yang didapat dari header pada paket nomor 130?
 
 Agar mempermudah, lakukan filtering agar hanya terlihat paket No. 130 dengan menggunakan `frame.number==130` lalu lakukan drop down pada **User Datagram Protocol**. Maka akan terlihat nilai checksumnya yaitu `0x18e5`
 
-![Paket 130](gambar/4.1.png)
+![Paket 130](Gambar/4.1.png)
 
 ### Nomor 5
 
