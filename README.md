@@ -55,6 +55,7 @@ Acknowledgment number (raw): 258040696
 ```
 
 Jawaban:
+
 ![ans 1](Gambar/1.3.jpg)
 
 ### Nomor 2
@@ -72,6 +73,7 @@ Karena hanya diminta unuk mencari web server untuk portal praktikum Jaringan Kom
 ![Web server](Gambar/2.2.png)
 
 Jawaban:
+
 ![ans 2](Gambar/2.3.jpg)
 
 ### Nomor 3
@@ -102,6 +104,7 @@ Lalu untung berapa banyak paket kita bisa hitung manual atau bisa dengan cara me
 ![Jumlah Paket](Gambar/3.3.png)
 
 Jawaban:
+
 ![ans 3](Gambar/3.4.jpg)
 
 ### Nomor 4
@@ -204,6 +207,7 @@ Mkan terlihat source address pada paket No. 7812 adalah **104.18.14.101**. Kita 
 Maka jika diurutkan akan mendapatkan ```JDRNJA```
 
 Jawaban:
+
 ![ans 6](Gambar/6.3.jpg)
 
 ### Nomor 7
