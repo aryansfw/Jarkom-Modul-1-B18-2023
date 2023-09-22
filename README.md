@@ -32,6 +32,28 @@ User melakukan berbagai aktivitas dengan menggunakan protokol FTP. Salah satunya
 
 #### Pembahasan
 
+Soal No. 1 hanya difokuskan pada **aktivitas mengunggah file**, jadi akan dicari paket yang melakukan perintah **STOR** dengan filtering menggunakan `ftp.request.command == "STOR"`
+
+![Paket STOR](gambar/1.1.png)
+
+Akan muncul paket No.147 melakukan **Request** dengan perintah **STOR**. Lalu click paket tersebut dan lakukan drop down pada **Transmission Control Protocol** maka akan terlihat Sequence number (raw) dan Acknowledgement number (raw) untuk aktivitas pengunggahan file.
+
+```
+Sequence Number (raw): 258040667
+Acknowledgment number (raw): 1044861039
+```
+
+Aktivitas pengunggahan file tersebut dalam bentuk file .zip. Maka kita akan mencari paket response yang berbentuk file .zip dan file tersebut adalah paket No. 149.
+
+![Paket Response](gambar/1.2.png)
+
+Lakukan hal yang sama seperti paket No. 147, drop down pada **Transmission Control Protocol** maka akan terlihat Sequence number (raw) dan Acknowledgement number (raw) untuk response dari aktivitas pengunggahan file tersebut.
+
+```
+Sequence Number (raw): 1044861039
+Acknowledgment number (raw): 258040696
+```
+
 ### Nomor 2
 
 #### Soal
@@ -39,6 +61,12 @@ User melakukan berbagai aktivitas dengan menggunakan protokol FTP. Salah satunya
 Sebutkan web server yang digunakan pada portal praktikum Jaringan Komputer!
 
 #### Pembahasan
+
+Karena hanya diminta unuk mencari web server untuk portal praktikum Jaringan Komputer maka kita akan melakukan filtering khusus mencari file yang terdapat **Jaringan Komputer** di paketnya dengan `frame contains "Jaringan Komputer"`. Lalu lakukan follow TCP Stream dan setelah itu kita dapat melihat server yang digunakan yaitu `gunicorn`.
+
+![Filtering jarkom](gambar/2.1.png)
+
+![Web server](gambar/2.2.png)
 
 ### Nomor 3
 
@@ -57,6 +85,16 @@ Dapin sedang belajar analisis jaringan. Bantulah Dapin untuk mengerjakan soal be
 
 #### Pembahasn
 
+Kita akan melakukan filtering untuk menemukan paket yang tercapture dengan IP source maupun destination address adalah 239.255.255.250 dengan port 3702 dengan menggunakan `ip.addr == 239.255.255.250 and udp.port == 3702` maka akan muncul semua paket yang memenuhi persyaratan tersebut
+
+![Paket 239.255.255.250 3702](gambar/3.1.png)
+
+Lalu untung berapa banyak paket kita bisa hitung manual atau bisa dengan cara membuka **Statistics** dan memilih **Capture File Properties** atau bisa juga dengan shortcut ` Ctrl + Alt + Shift + C` dan kita akan mendapatkan jumlah banyak paket yang sedang terlihat yaitu `21` dan seperti yang bisa dilihat protokol yang digunakan adalah `UDP`
+
+![Statistics](gambar/3.2.png)
+
+![Jumlah Paket](gambar/3.3.png)
+
 ### Nomor 4
 
 #### Soal
@@ -64,6 +102,10 @@ Dapin sedang belajar analisis jaringan. Bantulah Dapin untuk mengerjakan soal be
 Berapa nilai checksum yang didapat dari header pada paket nomor 130?
 
 #### Pembahasan
+
+Agar mempermudah, lakukan filtering agar hanya terlihat paket No. 130 dengan menggunakan `frame.number==130` lalu lakukan drop down pada **User Datagram Protocol**. Maka akan terlihat nilai checksumnya yaitu `0x18e5`
+
+![Paket 130](gambar/4.1.png)
 
 ### Nomor 5
 
@@ -125,6 +167,30 @@ Jawaban:
 Seorang anak bernama Udin Berteman dengan SlameT yang merupakan seorang penggemar film detektif. sebagai teman yang baik, Ia selalu mengajak slamet untuk bermain valoranT bersama. suatu malam, terjadi sebuah hal yang tak terdUga. ketika udin mereka membuka game tersebut, laptop udin menunjukkan sebuah field text dan Sebuah kode Invalid bertuliskan "server SOURCE ADDRESS 7812 is invalid". ketika ditelusuri di google, hasil pencarian hanya menampilkan a1 e5 u21. jiwa detektif slamet pun bergejolak. bantulah udin dan slamet untuk menemukan solusi kode error tersebut.
 
 #### Pembahasan
+
+Soal No. 6 cukup _tricky_ namun terdapat 2 clue menonjol pada soal, yaitu;
+
+1. "server SOURCE ADDRESS 7812 is invalid".
+2. a1 e5 u21
+
+Melihat dari clue pertama, berarti pada pcap soal No. 6 kita hanya perlu fokus pada source address paket No. 7812. Dan clue kedua menunjukan bahwa kita perlu mengubah angka-angka menjadi alphabet karena clue tersebut merupakan urutan dari alphabet dimana huruf a urutan ke-1 dalam alphabet, huruf e urutan ke-5 dalam alphabet dan u urutan ke-21 dalam alphabet.
+
+![num to alphabet](Gambar/6.1.png)
+
+Maka kita lakuka filtering terlebih dahulu agar hanya paket No. 7812 yang terlihat dengan menggunakan `frame.number==7812`
+
+![Paket 7812.2](Gambar/6.2.png)
+
+Mkan terlihat source address pada paket No. 7812 adalah **104.18.14.101**. Kita akan mengubah address tersebut menjadi alphabet.
+
+    10  →   J
+    4   →   D
+    18  →   R
+    14  →   N
+    10  →   J
+    1   →   A
+Maka jika diurutkan akan mendapatkan ```JDRNJA```
+
 
 ### Nomor 7
 
